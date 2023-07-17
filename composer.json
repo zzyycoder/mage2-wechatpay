@@ -1,5 +1,5 @@
 {
-    "name": "zzyy/module-wechat-pay",
+    "name": "zzyycoder/module-wechat-pay",
     "version": "1.0.0",
     "description": "Wechat Payment Gateway",
     "type": "magento2-module",
