@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="\Zzyy\WechatPay\Model\Method\Wechat" type="\Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">\Zzyy\WechatPay\Helper\Data::PAYMENT_CODE_WECHAT</argument>
+            <argument name="formBlockType" xsi:type="string">\Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">\Magento\Payment\Block\Info</argument>
+            <!--  gateway config value handler-用于获取配置  -->
+            <argument name="valueHandlerPool" xsi:type="object">\Zzyy\WechatPay\Gateway\Config\ValueHandlerPool</argument>
+            <!--  validator pool-用于验证payment method可用性  -->
+            <argument name="validatorPool" xsi:type="object">\Zzyy\WechatPay\Gateway\Validator\ValidatorPool</argument>
+            <!--  gateway commands  -->
+            <argument name="commandPool" xsi:type="object">\Zzyy\WechatPay\Gateway\Command\CommandPool</argument>
+        </arguments>
+    </virtualType>
+
+<!--  handler pool  -->
+    <virtualType name="\Zzyy\WechatPay\Gateway\Config\ValueHandlerPool" type="\Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">\Zzyy\WechatPay\Gateway\Config\ConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="\Zzyy\WechatPay\Gateway\Config\ConfigValueHandler" type="\Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">\Zzyy\WechatPay\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="\Zzyy\WechatPay\Gateway\Config\Config" type="\Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Zzyy\WechatPay\Helper\Data::PAYMENT_CODE_WECHAT</argument>
+        </arguments>
+    </virtualType>
+
+<!--  validator pool  -->
+    <virtualType name="\Zzyy\WechatPay\Gateway\Validator\ValidatorPool" type="\Magento\Payment\Gateway\Validator\ValidatorPool" />
+
+<!--command pool-->
+    <virtualType name="\Zzyy\WechatPay\Gateway\Command\CommandPool" type="\Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="initialize" xsi:type="string">\Zzyy\WechatPay\Gateway\Command\InitializeCommand</item>
+<!--                <item name="fetch_transaction_information" xsi:type="string">\Zzyy\WechatPay\Gateway\Command\FetchTransactionCommand</item>-->
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="\Zzyy\WechatPay\Gateway\Command\InitializeCommand" type="\Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">\Zzyy\WechatPay\Gateway\Request\TransactionInitRequest</argument>
+            <argument name="transferFactory" xsi:type="object">\Zzyy\WechatPay\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">\Zzyy\WechatPay\Gateway\Http\Client\TransactionInit</argument>
+            <argument name="handler" xsi:type="object">\Zzyy\WechatPay\Gateway\Response\TransactionInitHandler</argument>
+            <argument name="validator" xsi:type="object">\Zzyy\WechatPay\Gateway\Validator\BaseValidator</argument>
+        </arguments>
+    </virtualType>
+<!--    <virtualType name="\Zzyy\WechatPay\Gateway\Command\FetchTransactionCommand" type="\Magento\Payment\Gateway\Command\GatewayCommand">-->
+<!--        <arguments>-->
+<!--            <argument name="requestBuilder" xsi:type="object">\Zzyy\WechatPay\Gateway\Request\TransactionFetchRequest</argument>-->
+<!--            <argument name="transferFactory" xsi:type="object">\Zzyy\WechatPay\Gateway\Http\TransferFactory</argument>-->
+<!--            <argument name="client" xsi:type="object">\Zzyy\WechatPay\Gateway\Http\Client\TransactionFetch</argument>-->
+<!--            <argument name="handler" xsi:type="object">\Zzyy\WechatPay\Gateway\Response\TransactionFetchHandler</argument>-->
+<!--            <argument name="validator" xsi:type="object">\Zzyy\WechatPay\Gateway\Validator\FetchTransactionValidator</argument>-->
+<!--        </arguments>-->
+<!--    </virtualType>-->
+<!--    <virtualType name="\Zzyy\WechatPay\Gateway\Validator\FetchTransactionValidator" type="\Magento\Payment\Gateway\Validator\ValidatorComposite">-->
+<!--        <arguments>-->
+<!--            <argument name="validators" xsi:type="array">-->
+<!--                <item name="base" xsi:type="string">\Zzyy\WechatPay\Gateway\Validator\BaseValidator</item>-->
+<!--                <item name="trade-state" xsi:type="string">\Zzyy\WechatPay\Gateway\Validator\TradeStateValidator</item>-->
+<!--                <item name="total-fee" xsi:type="string">\Zzyy\WechatPay\Gateway\Validator\TotalFeeValidator</item>-->
+<!--            </argument>-->
+<!--            <argument name="chainBreakingValidators" xsi:type="array">-->
+<!--                <item name="base" xsi:type="string">base</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </virtualType>-->
+</config>

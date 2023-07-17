@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <wechat>
+                <active>1</active>
+                <title>Wechat Pay</title>
+                <model>Zzyy\WechatPay\Model\Method\Wechat</model>
+                <is_gateway>1</is_gateway>
+                <payment_action>initialize</payment_action>
+                <auto_invoice>1</auto_invoice>
+                <can_initialize>1</can_initialize>
+                <can_use_checkout>1</can_use_checkout>
+<!--                <can_fetch_transaction_info>1</can_fetch_transaction_info>-->
+<!--                <can_fetch_transaction_information>1</can_fetch_transaction_information>-->
+            </wechat>
+        </payment>
+    </default>
+</config>

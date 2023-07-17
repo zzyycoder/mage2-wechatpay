@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="wechat" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Wechat Pay</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1">
+                    <label>Enabled</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+                <field id="min_order_total" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1">
+                    <label>Minimum Order Total</label>
+                    <validate>validate-number validate-not-negative-number</validate>
+                </field>
+                <field id="max_order_total" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1">
+                    <label>Maximum Order Total</label>
+                    <validate>validate-number validate-not-negative-number</validate>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="6" showInDefault="1" showInWebsite="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>\Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="7" showInDefault="1" showInWebsite="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>\Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1">
+                    <label>Order Status After Paid</label>
+                    <source_model>\Zzyy\WechatPay\Model\Config\Source\OrderStatus</source_model>
+                </field>
+                <field id="auto_invoice" translate="label" type="select" sortOrder="21" showInDefault="1" showInWebsite="1">
+                    <label>Auto Invoice After Paid</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="app_id" translate="label" type="text" sortOrder="22" showInDefault="1" showInWebsite="1">
+                    <label>App Id</label>
+                </field>
+                <field id="mchid" translate="label" type="text" sortOrder="23" showInDefault="1" showInWebsite="1">
+                    <label>Merchant Id</label>
+                </field>
+                <field id="secret" translate="label" type="text" sortOrder="24" showInDefault="1" showInWebsite="1">
+                    <label>API Secret(V2)</label>
+                </field>
+                <!--                <field id="crt" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">-->
+                <!--                    <label>API Client Cert</label>-->
+                <!--                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>-->
+                <!--                    <upload_dir config="system" scope_info="1">upload</upload_dir>-->
+                <!--                </field>-->
+                <!--                <field id="key" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">-->
+                <!--                    <label>API Client Key</label>-->
+                <!--                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>-->
+                <!--                    <upload_dir config="system" scope_info="1">upload</upload_dir>-->
+                <!--                </field>-->
+            </group>
+        </section>
+    </system>
+</config>
