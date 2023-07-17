@@ -13,6 +13,7 @@
 
 注意
 
-1. 依据官方v2开发文档：https://pay.weixin.qq.com/wiki/doc/api/index.html。依赖的wechatpay/wechatpay是微信官方提供的sdk，有需要可以方便地切换成v3版本的api。（参看[Readme](https://github.com/wechatpay-apiv3/wechatpay-php/blob/main/README_APIv2.md)）
+1. 依据官方v2开发文档：https://pay.weixin.qq.com/wiki/doc/api/index.html。
+2. 依赖的wechatpay/wechatpay是微信官方提供的sdk，有需要可以方便地切换成v3版本的api。（参看[Readme](https://github.com/wechatpay-apiv3/wechatpay-php/blob/main/README_APIv2.md)）
 
-2. 国内微信支付商户号只允许使用CNY下单，magento2的下单默认使用base_currency，因此需要设置base currency为CNY。
+3. 国内微信支付商户号只允许使用CNY下单，magento2的下单默认使用base_currency，因此需要设置base currency为CNY。
