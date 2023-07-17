@@ -7,6 +7,8 @@
 
 参考文档：https://developer.adobe.com/commerce/php/development/payments-integrations/
 
+composer安装：`composer require zzyycoder/module-wechat-pay`
+
 依赖
 - [wechatpay/wechatpay](https://github.com/wechatpay-apiv3/wechatpay-php)
 - [simplesoftwareio/simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode)
