@@ -2,11 +2,8 @@
 
 实现了微信支付native支付流程，有需要的朋友可以基于这个做二次开发。
 
-<img src="/Users/zzyy/Code/magento2-2.4.6/app/code/Zzyy/WechatPay/1.jpg"  />
-
-
-
-![](/Users/zzyy/Code/magento2-2.4.6/app/code/Zzyy/WechatPay/2.jpg)
+![checkout](https://github.com/zzyycoder/mage2-wechatpay/blob/main/1.jpg?raw=true)
+![order](https://github.com/zzyycoder/mage2-wechatpay/blob/main/2.jpg?raw=true)
 
 参考文档：https://developer.adobe.com/commerce/php/development/payments-integrations/
 
