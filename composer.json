@@ -4,10 +4,6 @@
     "description": "Wechat Payment Gateway",
     "type": "magento2-module",
     "require": {
-        "magento/framework": "*",
-        "magento/module-payment": "100.1.*",
-        "magento/module-checkout": "100.1.*",
-        "magento/module-sales": "100.1.*",
         "wechatpay/wechatpay": "^1.4",
         "simplesoftwareio/simple-qrcode": "^4.2"
     },
