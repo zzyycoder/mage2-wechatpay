@@ -11,6 +11,7 @@ use Magento\Payment\Gateway\Data\PaymentDataObjectFactory;
 use Magento\Payment\Gateway\Validator\ValidatorCompositeFactory;
 use Magento\Payment\Model\InfoInterface;
 use Zzyy\WechatPay\Gateway\Validator\BaseValidator;
+use Zzyy\WechatPay\Gateway\Validator\OutTradeNoValidator;
 use Zzyy\WechatPay\Gateway\Validator\SignatureValidator;
 use Zzyy\WechatPay\Gateway\Validator\TotalFeeValidator;
 
@@ -79,6 +80,7 @@ class Data extends AbstractHelper
             'validators' => [
                 'sign' => SignatureValidator::class,
                 'base' => BaseValidator::class,
+                'out-trade-no' => OutTradeNoValidator::class,
                 'total-fee' => TotalFeeValidator::class,
             ],
             'chainBreakingValidators' => ['sign', 'base']
