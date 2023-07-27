@@ -38,7 +38,7 @@ class TransactionInitRequest implements BuilderInterface
             'mch_id' => $paymentMethod->getConfigData('mchid'),
             'body' => '测试',
             'out_trade_no' => $order->getOrderIncrementId(),
-            'total_fee' => 1,
+            'total_fee' => $order->getGrandTotalAmount() * 100,
             'trade_type' => 'NATIVE',
             'fee_type' => $order->getCurrencyCode(),
             'notify_url' => $this->helper->getNotifyUrl($order->getId())
